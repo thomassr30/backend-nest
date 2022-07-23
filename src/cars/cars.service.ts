@@ -21,4 +21,12 @@ export class CarsService {
         }
     ]
 
+    findAll(){
+        return this.cars
+    }
+
+    findCardById(id){
+        return this.cars[id-1]
+    }
+
 }
