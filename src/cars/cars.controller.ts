@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import { Car } from './interfaces/car.interface';
 
 @Controller('cars')
 export class CarsController {
@@ -14,22 +15,22 @@ export class CarsController {
     }
 
     @Get(':id')
-    getCarById(@Param('id', ParseIntPipe) id ){
+    getCarById(@Param('id') id ){
         return this.carsService.findCardById(id)
     }
 
     @Post()
-    createCar(@Body() body: any){
+    createCar(@Body() body: Car){
         return body
     }
 
     @Patch(':id')
-    updateCar(@Param('id', ParseIntPipe) id,@Body() body: any){
+    updateCar(@Param('id') id,@Body() body: any){
         return body
     }
 
     @Delete(':id')
-    deleteCar(@Param(':id', ParseIntPipe) id){
+    deleteCar(@Param(':id') id){
         return {
             method: 'DELETE',
             id
