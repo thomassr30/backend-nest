@@ -76,4 +76,9 @@ export class CarsService {
 
     }
 
+    delete(id: string){
+        const car = this.findCardById(id)
+        this.cars = this.cars.filter(c => c.id !== id)
+    }
+
 }
